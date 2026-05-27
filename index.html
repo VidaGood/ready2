@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Marketing Digital</title>
@@ -20,45 +18,7 @@
 
 <body>
 
-    <!-- =========================
-         MENÚ HAMBURGUESA
-    ========================= -->
-
-    <!-- BOTÓN -->
-    <div class="menu-btn" id="menu-btn">
-        ☰
-    </div>
-
-    <!-- PANEL LATERAL -->
-    <div class="sidebar" id="sidebar">
-
-        <div class="sidebar-header">
-
-            <h2>Menú</h2>
-
-            <span id="cerrar-menu">✕</span>
-
-        </div>
-
-        <a href="#">🏠 Inicio</a>
-
-        <a href="#">📚 Cursos</a>
-
-        <a href="#">🛠 Herramientas</a>
-
-        <a href="#">🔥 Populares</a>
-
-        <a href="#">📞 Contacto</a>
-
-    </div>
-
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- =========================
-         HEADER
-    ========================= -->
-
+    <!-- HEADER -->
     <header>
 
         <h1>Marketing Digital</h1>
@@ -83,20 +43,14 @@
 
     </header>
 
-    <!-- =========================
-         CATÁLOGO
-    ========================= -->
-
+    <!-- CATÁLOGO -->
     <section class="catalogo" id="catalogo">
 
         <!-- SE LLENA CON JS -->
 
     </section>
 
-    <!-- =========================
-         BOTÓN WHATSAPP
-    ========================= -->
-
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
     <a href="https://wa.me/573001112233" class="whatsapp-float" target="_blank">
 
         <img
@@ -105,188 +59,165 @@
         >
 
         <span class="whatsapp-text">
-
             ¿Necesitas ayuda?
-
         </span>
 
     </a>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer class="footer">
-
-        <div class="footer-contenido">
-
-            <!-- LOGO -->
-            <div class="footer-seccion">
-
-                <h2>Marketing Digital</h2>
-
-                <p>
-                    Cursos, herramientas y recursos digitales
-                    para crecer online y mejorar tu vida.
-                </p>
-
-            </div>
-
-            <!-- ENLACES -->
-            <div class="footer-seccion">
-
-                <h3>Enlaces</h3>
-
-                <a href="#">Inicio</a>
-
-                <a href="#">Cursos</a>
-
-                <a href="#">Herramientas</a>
-
-                <a href="#">Contacto</a>
-
-            </div>
-
-            <!-- REDES -->
-            <div class="footer-seccion">
-
-                <h3>Redes Sociales</h3>
-
-                <a href="#">Instagram</a>
-
-                <a href="#">Facebook</a>
-
-                <a href="#">TikTok</a>
-
-                <a href="#">YouTube</a>
-
-            </div>
-
-        </div>
-
-        <!-- COPYRIGHT -->
-        <div class="footer-copy">
-
-            © 2026 Marketing Digital | Todos los derechos reservados
-
-        </div>
-
-    </footer>
-
-    <!-- =========================
-         SCRIPT WHATSAPP
-    ========================= -->
-
+    <!-- SCRIPT WHATSAPP -->
     <script>
 
-    const whatsappBtn = document.querySelector(".whatsapp-float");
+        const whatsappBtn = document.querySelector(".whatsapp-float");
 
-    let isDragging = false;
+        let isDragging = false;
+        let moved = false;
+        let offsetX = 0;
+        let offsetY = 0;
 
-    let moved = false;
+        whatsappBtn.addEventListener("mousedown", (e) => {
 
-    let offsetX = 0;
+            isDragging = true;
+            moved = false;
 
-    let offsetY = 0;
+            offsetX = e.clientX - whatsappBtn.getBoundingClientRect().left;
+            offsetY = e.clientY - whatsappBtn.getBoundingClientRect().top;
 
-    whatsappBtn.addEventListener("mousedown", (e) => {
-
-        isDragging = true;
-
-        moved = false;
-
-        offsetX = e.clientX - whatsappBtn.getBoundingClientRect().left;
-
-        offsetY = e.clientY - whatsappBtn.getBoundingClientRect().top;
-
-        whatsappBtn.style.transition = "none";
-
-        e.preventDefault();
-    });
-
-    document.addEventListener("mousemove", (e) => {
-
-        if (!isDragging) return;
-
-        moved = true;
-
-        whatsappBtn.style.left = `${e.clientX - offsetX}px`;
-
-        whatsappBtn.style.top = `${e.clientY - offsetY}px`;
-
-        whatsappBtn.style.right = "auto";
-
-        whatsappBtn.style.bottom = "auto";
-    });
-
-    document.addEventListener("mouseup", () => {
-
-        isDragging = false;
-
-        whatsappBtn.style.transition = "transform 0.3s ease";
-    });
-
-    whatsappBtn.addEventListener("click", (e) => {
-
-        if (moved) {
+            whatsappBtn.style.transition = "none";
 
             e.preventDefault();
 
-            moved = false;
-        }
-    });
+        });
+
+        document.addEventListener("mousemove", (e) => {
+
+            if (!isDragging) return;
+
+            moved = true;
+
+            whatsappBtn.style.left = `${e.clientX - offsetX}px`;
+            whatsappBtn.style.top = `${e.clientY - offsetY}px`;
+
+            whatsappBtn.style.right = "auto";
+            whatsappBtn.style.bottom = "auto";
+
+        });
+
+        document.addEventListener("mouseup", () => {
+
+            isDragging = false;
+
+            whatsappBtn.style.transition = "transform 0.3s ease";
+
+        });
+
+        /* EVITA ABRIR WHATSAPP SI SOLO ESTABAS MOVIENDO */
+        whatsappBtn.addEventListener("click", (e) => {
+
+            if (moved) {
+
+                e.preventDefault();
+                moved = false;
+
+            }
+
+        });
 
     </script>
 
-    <!-- =========================
-         JS MENÚ LATERAL
-    ========================= -->
-
+    <!-- VISOR DE IMÁGENES -->
     <script>
 
-    const menuBtn = document.getElementById("menu-btn");
+        const visor = document.getElementById("visor-imagen");
+        const imagenGrande = document.getElementById("imagen-grande");
 
-    const sidebar = document.getElementById("sidebar");
+        /* ESPERA A QUE EL CATÁLOGO CARGUE */
+        window.addEventListener("load", () => {
 
-    const cerrarMenu = document.getElementById("cerrar-menu");
+            const imagenes = document.querySelectorAll(".card img");
 
-    const overlay = document.getElementById("overlay");
+            imagenes.forEach(img => {
 
-    /* ABRIR */
+                img.addEventListener("mouseenter", () => {
 
-    menuBtn.addEventListener("click", () => {
+                    imagenGrande.src = img.src;
 
-        sidebar.classList.add("active");
+                    visor.style.display = "flex";
 
-        overlay.classList.add("active");
-    });
+                });
 
-    /* CERRAR */
+            });
 
-    cerrarMenu.addEventListener("click", () => {
+        });
 
-        sidebar.classList.remove("active");
+        /* CERRAR VISOR */
+        visor.addEventListener("mouseleave", () => {
 
-        overlay.classList.remove("active");
-    });
+            visor.style.display = "none";
 
-    /* CERRAR OVERLAY */
+        });
 
-    overlay.addEventListener("click", () => {
+        visor.addEventListener("click", () => {
 
-        sidebar.classList.remove("active");
+            visor.style.display = "none";
 
-        overlay.classList.remove("active");
-    });
+        });
 
     </script>
 
-    <!-- =========================
-         JS PRINCIPAL
-    ========================= -->
-
+    <!-- JS PRINCIPAL -->
     <script src="js/script.js"></script>
 
 </body>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer">
+
+    <div class="footer-contenido">
+
+        <!-- LOGO / TÍTULO -->
+        <div class="footer-seccion">
+
+            <h2>Marketing Digital</h2>
+
+            <p>
+                Cursos, herramientas y recursos digitales para crecer online y mejorar tu vida.
+            </p>
+
+        </div>
+
+        <!-- ENLACES -->
+        <div class="footer-seccion">
+
+            <h3>Enlaces</h3>
+
+            <a href="#">Inicio</a>
+            <a href="#">Cursos</a>
+            <a href="#">Herramientas</a>
+            <a href="#">Contacto</a>
+
+        </div>
+
+        <!-- REDES -->
+        <div class="footer-seccion">
+
+            <h3>Redes Sociales</h3>
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-copy">
+
+        © 2026 Marketing Digital | Todos los derechos reservados
+
+    </div>
+
+</footer>
 
 </html>
