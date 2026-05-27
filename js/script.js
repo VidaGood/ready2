@@ -136,3 +136,41 @@ search.addEventListener("input", () => {
     resultados.style.display = "block";
 
 });
+/* =========================
+   MENÚ LATERAL
+========================= */
+
+const menuBtn = document.getElementById("menu-btn");
+
+const sidebar = document.getElementById("sidebar");
+
+const cerrarMenu = document.getElementById("cerrar-menu");
+
+const overlay = document.getElementById("overlay");
+
+/* ABRIR */
+
+menuBtn.addEventListener("click", () => {
+
+    sidebar.classList.add("active");
+
+    overlay.classList.add("active");
+});
+
+/* CERRAR */
+
+cerrarMenu.addEventListener("click", () => {
+
+    sidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+});
+
+/* CERRAR CON OVERLAY */
+
+overlay.addEventListener("click", () => {
+
+    sidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+});
