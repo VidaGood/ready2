@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Marketing Digital</title>
 
     <link rel="stylesheet" href="css/styles.css">
@@ -11,11 +15,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
-    
+
 <body>
 
-    <!-- HEADER -->
+    <!-- =========================
+         MENÚ HAMBURGUESA
+    ========================= -->
+
+    <!-- BOTÓN -->
+    <div class="menu-btn" id="menu-btn">
+        ☰
+    </div>
+
+    <!-- PANEL LATERAL -->
+    <div class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <h2>Menú</h2>
+
+            <span id="cerrar-menu">✕</span>
+
+        </div>
+
+        <a href="#">🏠 Inicio</a>
+
+        <a href="#">📚 Cursos</a>
+
+        <a href="#">🛠 Herramientas</a>
+
+        <a href="#">🔥 Populares</a>
+
+        <a href="#">📞 Contacto</a>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <header>
 
         <h1>Marketing Digital</h1>
@@ -27,10 +70,10 @@
         <!-- BUSCADOR -->
         <div class="buscador">
 
-            <input 
-                type="text" 
-                id="search" 
-                placeholder="Buscar cursos, herramientas..." 
+            <input
+                type="text"
+                id="search"
+                placeholder="Buscar cursos, herramientas..."
                 autocomplete="off"
             >
 
@@ -40,39 +83,116 @@
 
     </header>
 
-    <!-- CATÁLOGO -->
+    <!-- =========================
+         CATÁLOGO
+    ========================= -->
+
     <section class="catalogo" id="catalogo">
+
         <!-- SE LLENA CON JS -->
+
     </section>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <!-- =========================
+         BOTÓN WHATSAPP
+    ========================= -->
+
     <a href="https://wa.me/573001112233" class="whatsapp-float" target="_blank">
 
-        <img 
-            src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
             alt="WhatsApp"
         >
 
         <span class="whatsapp-text">
+
             ¿Necesitas ayuda?
+
         </span>
 
     </a>
 
-    <!-- SCRIPT WHATSAPP -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="footer">
+
+        <div class="footer-contenido">
+
+            <!-- LOGO -->
+            <div class="footer-seccion">
+
+                <h2>Marketing Digital</h2>
+
+                <p>
+                    Cursos, herramientas y recursos digitales
+                    para crecer online y mejorar tu vida.
+                </p>
+
+            </div>
+
+            <!-- ENLACES -->
+            <div class="footer-seccion">
+
+                <h3>Enlaces</h3>
+
+                <a href="#">Inicio</a>
+
+                <a href="#">Cursos</a>
+
+                <a href="#">Herramientas</a>
+
+                <a href="#">Contacto</a>
+
+            </div>
+
+            <!-- REDES -->
+            <div class="footer-seccion">
+
+                <h3>Redes Sociales</h3>
+
+                <a href="#">Instagram</a>
+
+                <a href="#">Facebook</a>
+
+                <a href="#">TikTok</a>
+
+                <a href="#">YouTube</a>
+
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="footer-copy">
+
+            © 2026 Marketing Digital | Todos los derechos reservados
+
+        </div>
+
+    </footer>
+
+    <!-- =========================
+         SCRIPT WHATSAPP
+    ========================= -->
+
     <script>
 
     const whatsappBtn = document.querySelector(".whatsapp-float");
 
     let isDragging = false;
+
     let moved = false;
 
     let offsetX = 0;
+
     let offsetY = 0;
 
     whatsappBtn.addEventListener("mousedown", (e) => {
 
         isDragging = true;
+
         moved = false;
 
         offsetX = e.clientX - whatsappBtn.getBoundingClientRect().left;
@@ -106,8 +226,6 @@
         whatsappBtn.style.transition = "transform 0.3s ease";
     });
 
-    /* EVITA ABRIR WHATSAPP SI SOLO ESTABAS MOVIENDO */
-
     whatsappBtn.addEventListener("click", (e) => {
 
         if (moved) {
@@ -120,128 +238,55 @@
 
     </script>
 
-    <!-- VISOR DE IMÁGENES -->
+    <!-- =========================
+         JS MENÚ LATERAL
+    ========================= -->
+
     <script>
 
-    const visor = document.getElementById("visor-imagen");
+    const menuBtn = document.getElementById("menu-btn");
 
-    const imagenGrande = document.getElementById("imagen-grande");
+    const sidebar = document.getElementById("sidebar");
 
-    /* ESPERA A QUE EL CATÁLOGO CARGUE */
+    const cerrarMenu = document.getElementById("cerrar-menu");
 
-    window.addEventListener("load", () => {
+    const overlay = document.getElementById("overlay");
 
-        const imagenes = document.querySelectorAll(".card img");
+    /* ABRIR */
 
-        imagenes.forEach(img => {
+    menuBtn.addEventListener("click", () => {
 
-            img.addEventListener("mouseenter", () => {
+        sidebar.classList.add("active");
 
-                imagenGrande.src = img.src;
-
-                visor.style.display = "flex";
-            });
-
-        });
-
+        overlay.classList.add("active");
     });
 
-    /* CERRAR VISOR */
+    /* CERRAR */
 
-    visor.addEventListener("mouseleave", () => {
+    cerrarMenu.addEventListener("click", () => {
 
-        visor.style.display = "none";
+        sidebar.classList.remove("active");
+
+        overlay.classList.remove("active");
     });
 
-    visor.addEventListener("click", () => {
+    /* CERRAR OVERLAY */
 
-        visor.style.display = "none";
+    overlay.addEventListener("click", () => {
+
+        sidebar.classList.remove("active");
+
+        overlay.classList.remove("active");
     });
 
     </script>
 
-    <!-- JS PRINCIPAL -->
+    <!-- =========================
+         JS PRINCIPAL
+    ========================= -->
+
     <script src="js/script.js"></script>
 
 </body>
-    <!-- BOTÓN MENÚ -->
-<div class="menu-btn" id="menu-btn">
-    ☰
-</div>
 
-<!-- PANEL LATERAL -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-header">
-
-        <h2>Menú</h2>
-
-        <span id="cerrar-menu">✕</span>
-
-    </div>
-
-    <a href="#">🏠 Inicio</a>
-    <a href="#">📚 Cursos</a>
-    <a href="#">🛠 Herramientas</a>
-    <a href="#">🔥 Populares</a>
-    <a href="#">📞 Contacto</a>
-
-</div>
-
-<!-- FONDO OSCURO -->
-<div class="overlay" id="overlay"></div>
-    <!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-    <div class="footer-contenido">
-
-        <!-- LOGO / TÍTULO -->
-        <div class="footer-seccion">
-
-            <h2>Marketing Digital</h2>
-
-            <p>
-                Cursos, herramientas y recursos digitales
-                para crecer online y mejorar tu vida.
-            </p>
-
-        </div>
-
-        <!-- ENLACES -->
-        <div class="footer-seccion">
-
-            <h3>Enlaces</h3>
-
-            <a href="#">Inicio</a>
-            <a href="#">Cursos</a>
-            <a href="#">Herramientas</a>
-            <a href="#">Contacto</a>
-
-        </div>
-
-        <!-- REDES -->
-        <div class="footer-seccion">
-
-            <h3>Redes Sociales</h3>
-
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">TikTok</a>
-            <a href="#">YouTube</a>
-
-        </div>
-
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer-copy">
-
-        © 2026 Marketing Digital | Todos los derechos reservados
-
-    </div>
-
-</footer>
 </html>
