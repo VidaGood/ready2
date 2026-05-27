@@ -1,0 +1,311 @@
+/* =========================
+   FUENTES Y ESTILOS GLOBALES
+========================= */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
+    background:
+        radial-gradient(circle at top, #1e3a8a, #0f172a 50%);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #020617;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 48px;
+}
+
+.subtitulo {
+    color: #94a3b8;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.buscador {
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.buscador input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* RESULTADOS DEL BUSCADOR */
+
+#resultados {
+    position: absolute;
+    width: 100%;
+    margin-top: 8px;
+
+    background: white;
+    color: black;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: none;
+
+    z-index: 100;
+}
+
+#resultados div {
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#resultados div:hover {
+    background: #e5e7eb;
+}
+
+/* =========================
+   CATÁLOGO
+========================= */
+
+.catalogo {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+
+    padding: 35px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.card {
+    background: rgba(30, 41, 59, 0.75);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: aparecer 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   IMÁGENES UNIFORMES
+========================= */
+
+.card img {
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    transition: transform 0.3s ease;
+
+    cursor: pointer;
+}
+
+/* ZOOM */
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   TÍTULO PRODUCTO
+========================= */
+
+.card h3 {
+    margin-top: 18px;
+    font-size: 30px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.card button {
+    margin-top: 12px;
+
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(135deg, #22c55e, #16a34a);
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card button:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 20px rgba(34,197,94,0.4);
+}
+
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+
+.whatsapp-float {
+    position: fixed;
+
+    width: 65px;
+    height: 65px;
+
+    bottom: 20px;
+    right: 20px;
+
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25d366;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.35);
+
+    cursor: grab;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 10px 25px rgba(37,211,102,0.5);
+}
+
+.whatsapp-float:active {
+    cursor: grabbing;
+}
+
+.whatsapp-float img {
+    width: 38px;
+    height: 38px;
+}
+
+/* TEXTO */
+
+.whatsapp-text {
+    position: absolute;
+
+    bottom: -32px;
+
+    background: rgba(0,0,0,0.75);
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    .catalogo {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .card img {
+        height: 240px;
+    }
+}
