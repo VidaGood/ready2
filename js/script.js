@@ -11,7 +11,7 @@ const productos = [
         link: "https://go.hotmart.com/C105983420C"
     },
     {
-        nombre: "Pierde libras (peso) coiendo rico",
+        nombre: "Pierde libras (peso) comiendo rico",
         imagen: "img/hero-meal-BWz3lO8c.jpg",
         link: "https://go.hotmart.com/O105983599I"
     },
@@ -21,7 +21,7 @@ const productos = [
         link: "https://go.hotmart.com/P105537258V"
     },
     {
-        nombre: "Ejercta tu mente",
+        nombre: "Diseña y crea con resina",
         imagen: "img/Gemini_Generated_Image_28w3mz28w3mz28w3.png",
         link: "https://go.hotmart.com/E105992330P"
     },
