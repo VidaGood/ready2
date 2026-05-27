@@ -22,7 +22,7 @@ const productos = [
     },
     {
         nombre: "Ejercta tu mente",
-        imagen: "img/Captura de pantalla 2026-05-19 203800.png",
+        imagen: "img/Gemini_Generated_Image_28w3mz28w3mz28w3",
         link: "https://go.hotmart.com/E105992330P"
     },
     {
