@@ -23,7 +23,7 @@ const productos = [
     {
         nombre: "Ejercta tu mente",
         imagen: "img/Captura de pantalla 2026-05-19 203800.png",
-        link: "https://go.hotmart.com/C105458941D"
+        link: "https://go.hotmart.com/E105992330P"
     },
     {
         nombre: "Ejercta tu mente",
