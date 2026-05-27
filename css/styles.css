@@ -430,3 +430,181 @@ header {
     font-size: 14px;
 
 }
+/* =========================
+   BOTÓN MENÚ
+========================= */
+
+.menu-btn {
+
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    background: rgba(15, 23, 42, 0.95);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 2000;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.menu-btn:hover {
+
+    transform: scale(1.08);
+
+    background: #1e293b;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: -300px;
+
+    width: 280px;
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #020617,
+            #0f172a
+        );
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    z-index: 2500;
+
+    transition: left 0.4s ease;
+
+    box-shadow:
+        10px 0 30px rgba(0,0,0,0.5);
+}
+
+/* SIDEBAR ACTIVO */
+
+.sidebar.active {
+
+    left: 0;
+}
+
+/* HEADER SIDEBAR */
+
+.sidebar-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+}
+
+.sidebar-header h2 {
+
+    color: white;
+
+    margin: 0;
+}
+
+#cerrar-menu {
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color: white;
+}
+
+/* LINKS */
+
+.sidebar a {
+
+    display: block;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sidebar a:hover {
+
+    background: rgba(34,197,94,0.2);
+
+    transform: translateX(6px);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.5);
+
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 2400;
+}
+
+.overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
