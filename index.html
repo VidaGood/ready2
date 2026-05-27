@@ -1,2 +1,174 @@
-# ready2
-lo mejor
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>Marketing Digital</h1>
+
+        <p class="subtitulo">
+            Los mejores cursos y herramientas digitales
+        </p>
+
+        <!-- BUSCADOR -->
+        <div class="buscador">
+
+            <input 
+                type="text" 
+                id="search" 
+                placeholder="Buscar cursos, herramientas..." 
+                autocomplete="off"
+            >
+
+            <div id="resultados"></div>
+
+        </div>
+
+    </header>
+
+    <!-- CATÁLOGO -->
+    <section class="catalogo" id="catalogo">
+        <!-- SE LLENA CON JS -->
+    </section>
+
+    <!-- VISOR DE IMAGEN -->
+    <div id="visor-imagen">
+
+        <img id="imagen-grande">
+
+    </div>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/573001112233" class="whatsapp-float" target="_blank">
+
+        <img 
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+            alt="WhatsApp"
+        >
+
+        <span class="whatsapp-text">
+            ¿Necesitas ayuda?
+        </span>
+
+    </a>
+
+    <!-- SCRIPT WHATSAPP -->
+    <script>
+
+    const whatsappBtn = document.querySelector(".whatsapp-float");
+
+    let isDragging = false;
+    let moved = false;
+
+    let offsetX = 0;
+    let offsetY = 0;
+
+    whatsappBtn.addEventListener("mousedown", (e) => {
+
+        isDragging = true;
+        moved = false;
+
+        offsetX = e.clientX - whatsappBtn.getBoundingClientRect().left;
+
+        offsetY = e.clientY - whatsappBtn.getBoundingClientRect().top;
+
+        whatsappBtn.style.transition = "none";
+
+        e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", (e) => {
+
+        if (!isDragging) return;
+
+        moved = true;
+
+        whatsappBtn.style.left = `${e.clientX - offsetX}px`;
+
+        whatsappBtn.style.top = `${e.clientY - offsetY}px`;
+
+        whatsappBtn.style.right = "auto";
+
+        whatsappBtn.style.bottom = "auto";
+    });
+
+    document.addEventListener("mouseup", () => {
+
+        isDragging = false;
+
+        whatsappBtn.style.transition = "transform 0.3s ease";
+    });
+
+    /* EVITA ABRIR WHATSAPP SI SOLO ESTABAS MOVIENDO */
+
+    whatsappBtn.addEventListener("click", (e) => {
+
+        if (moved) {
+
+            e.preventDefault();
+
+            moved = false;
+        }
+    });
+
+    </script>
+
+    <!-- VISOR DE IMÁGENES -->
+    <script>
+
+    const visor = document.getElementById("visor-imagen");
+
+    const imagenGrande = document.getElementById("imagen-grande");
+
+    /* ESPERA A QUE EL CATÁLOGO CARGUE */
+
+    window.addEventListener("load", () => {
+
+        const imagenes = document.querySelectorAll(".card img");
+
+        imagenes.forEach(img => {
+
+            img.addEventListener("mouseenter", () => {
+
+                imagenGrande.src = img.src;
+
+                visor.style.display = "flex";
+            });
+
+        });
+
+    });
+
+    /* CERRAR VISOR */
+
+    visor.addEventListener("mouseleave", () => {
+
+        visor.style.display = "none";
+    });
+
+    visor.addEventListener("click", () => {
+
+        visor.style.display = "none";
+    });
+
+    </script>
+
+    <!-- JS PRINCIPAL -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
