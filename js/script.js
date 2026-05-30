@@ -29,34 +29,7 @@ const productos = [
         nombre: "Diseña y crea con resina",
         imagen: "img/Gemini_Generated_Image_28w3mz28w3mz28w3.png",
         link: "https://go.hotmart.com/E105992330P"
-    },
-
-    {
-        nombre: "Ejercta tu mente",
-        imagen: "img/Captura de pantalla 2026-05-19 203800.png",
-        link: "https://go.hotmart.com/C105458941D"
-    },
-
-    {
-        nombre: "Ejercta tu mente",
-        imagen: "img/Captura de pantalla 2026-05-19 203800.png",
-        link: "https://go.hotmart.com/C105458941D"
-    },
-
-    {
-        nombre: "Ejercta tu mente",
-        imagen: "img/Captura de pantalla 2026-05-19 203800.png",
-        link: "https://go.hotmart.com/C105458941D"
-    },
-
-    {
-        nombre: "Ejercta tu mente",
-        imagen: "img/Captura de pantalla 2026-05-19 203800.png",
-        link: "https://go.hotmart.com/C105458941D"
-    },
-
-];
-
+    };
 
 // MOSTRAR CATÁLOGO
 const catalogo = document.getElementById("catalogo");
