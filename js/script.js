@@ -29,8 +29,8 @@ const productos = [
         nombre: "Diseña y crea con resina",
         imagen: "img/Gemini_Generated_Image_28w3mz28w3mz28w3.png",
         link: "https://go.hotmart.com/E105992330P"
-    };
-
+    },
+    ];
 // MOSTRAR CATÁLOGO
 const catalogo = document.getElementById("catalogo");
 
